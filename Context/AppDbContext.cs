@@ -13,7 +13,7 @@ public class AppDbContext:DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source=NIKO\\NIKO;Initial Catalog=BookShop;Integrated Security=True");
+        optionsBuilder.UseSqlServer("Data Source=NIKO\\NIKO;Initial Catalog=ShopAppDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         base.OnConfiguring(optionsBuilder);
     }
 
