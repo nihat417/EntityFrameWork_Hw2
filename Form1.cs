@@ -21,6 +21,17 @@ public partial class Form1 : Form
             comboBox1.Items.Add(item.FirstName);
         }
 
+        foreach (var item in AppDb.Teacherss)
+        {
+            comboBox2.Items.Add(item.FirstName);
+        }
+
+
+        foreach (var item in AppDb.Categorys)
+        {
+            comboBox3.Items.Add(item.Id);
+        }
+
 
     }
 
@@ -46,5 +57,35 @@ public partial class Form1 : Form
         {
             textBox2.Text = item.ToString();
         }
+    }
+
+    private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var list = (from S in AppDb.Teacherss
+                    where S.FirstName == comboBox2.Text
+                    select S.Id_Dep).ToList();
+
+        foreach (var item in list)
+        {
+            textBox3.Text = item.ToString();
+        }
+
+       
+    }
+
+    private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        var list = (from S in AppDb.Bookss
+                    where S.Name == comboBox3.Text
+                    select S.Id_Author).ToList();
+
+        foreach (var item in list)
+        {
+            textBox4.Text = item.ToString();
+        }
+
+        //var list1= (from S in AppDb.Authorss
+        //            where S.Id == list
+        //            select S.Id_Author).ToList();
     }
 }
